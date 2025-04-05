@@ -42,10 +42,12 @@ pipeline {
       }
     }
     stage('RunDASTUsingZAP') {
-      steps {
-        bat("\"C:/ZAP - OWASP/ZAP_2.16.1/zap.bat\" -port 9393 -cmd -quickurl https://www.example.com -quickprogress -quickout C:/ZAP - OWASP/ZAP_2.16.1/Output.html")
-      }
+  steps {
+    dir("C:/ZAP - OWASP/ZAP_2.16.1") {
+      bat("zap.bat -port 9393 -cmd -quickurl https://www.example.com -quickprogress -quickout Output.html")
     }
+  }
+}
 
     stage('checkov') {
       steps {
