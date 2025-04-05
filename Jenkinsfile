@@ -41,10 +41,10 @@ pipeline {
         }
       }
     }
-    stage('RunDASTUsingZAP') {
+stage('RunDASTUsingZAP') {
   steps {
     dir("C:/ZAP - OWASP/ZAP_2.16.1") {
-      bat("zap.bat -port 9393 -cmd -quickurl https://www.example.com -quickprogress -quickout Output.html")
+      bat("\"zap.bat\" -port 9393 -cmd -quickurl https://www.example.com -quickprogress -quickout \"C:/Users/ADMIN/Desktop/DevOps Training/DevSecOps/DevSecOps Basics and Fundamentals/Github Code/devsecops-pipeline-end-to-end-test/zap-report.html\"")
     }
   }
 }
